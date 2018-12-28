@@ -10,6 +10,7 @@
     <modules>
         <module>cloud-api</module>
         <module>provider-dept-8001</module>
+        <module>consumer-dept-80</module>
     </modules>
     <packaging>pom</packaging>
 

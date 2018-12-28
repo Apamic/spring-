@@ -19,8 +19,8 @@ public class DeptServiceImpl implements DeptService {
         return deptDao.addDept(dept);
     }
 
-    public Dept findByID(Long id) {
-        return deptDao.findByID(id);
+    public Dept findById(Long id) {
+        return deptDao.findById(id);
     }
 
     public List<Dept> findAll() {
