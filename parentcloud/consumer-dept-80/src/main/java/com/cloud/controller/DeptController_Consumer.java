@@ -4,6 +4,7 @@ import com.cloud.entities.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,7 +14,6 @@ import java.util.List;
 public class DeptController_Consumer {
 
     private static final String REST_URL_PREFIX = "http://localhost:8001";
-
 
     /**
      * (url,requestMap,ResponseBean.class)这三个参数分别代表REST请求地址,请求参数，HTTP响应转换的对象类型。
@@ -28,12 +28,12 @@ public class DeptController_Consumer {
 
     @RequestMapping(value = "/consumer/dept/get/{id}")
     public Dept get(@PathVariable("id") Long id) {
-        return restTemplate.postForObject(REST_URL_PREFIX + "/dept/get/" + id,id,Dept.class);
+        return restTemplate.getForObject(REST_URL_PREFIX + "/dept/get/" + id,Dept.class);
     }
 
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "/consumer/dept/list")
     public List<Dept> list() {
-        return restTemplate.postForObject(REST_URL_PREFIX + "/dept/list","", List.class);
+        return restTemplate.getForObject(REST_URL_PREFIX + "/dept/list", List.class);
     }
 }
