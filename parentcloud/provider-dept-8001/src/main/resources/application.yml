@@ -28,3 +28,8 @@ logging:
     com.cloud.dao: debug                                                                     # 开启SQL日志
 #debug: true
 
+eureka:
+  client:                                        #客户端注册进Eureka服务列表内
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+

@@ -11,7 +11,7 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 @AllArgsConstructor
 @Data
-@NoArgsConstructor
+//@NoArgsConstructor
 @Accessors(chain = true)
 public class Dept implements Serializable {
 
