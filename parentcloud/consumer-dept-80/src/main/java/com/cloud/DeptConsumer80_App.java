@@ -11,5 +11,4 @@ public class DeptConsumer80_App {
         SpringApplication.run(DeptConsumer80_App.class,args);
     }
 
-
 }
