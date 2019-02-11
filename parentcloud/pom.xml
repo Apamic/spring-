@@ -12,6 +12,8 @@
         <module>provider-dept-8001</module>
         <module>consumer-dept-80</module>
         <module>Eureka-7001</module>
+        <module>Eureka-7002</module>
+        <module>Eureka-7003</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -25,6 +27,7 @@
 
         <lombok.version>1.18.4</lombok.version>
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
+        <spring-boot.version>2.0.8.RELEASE</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -32,7 +35,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.SR2</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -40,7 +43,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.0.8.RELEASE</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
