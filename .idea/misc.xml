@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/parentcloud/pom.xml" />
+        <option value="$PROJECT_DIR$/parentcloud/cloud-api/pom.xml" />
+        <option value="$PROJECT_DIR$/parentcloud/provider-dept-8001/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/parentcloud/Erueka-7003/pom.xml" />
+        <option value="$PROJECT_DIR$/parentcloud/consumer-dept-8001/pom.xml" />
+        <option value="$PROJECT_DIR$/parentcloud/eureka-7001/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_10" project-jdk-name="10" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

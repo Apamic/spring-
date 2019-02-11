@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cloud-api" />
+        <module name="consumer-dept-80" />
+        <module name="Eureka-7001" />
+        <module name="Eureka-7002" />
+        <module name="Eureka-7003" />
+        <module name="provider-dept-8001" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="consumer-dept-8001" target="1.5" />
+      <module name="Erueka-7003" target="1.5" />
+      <module name="eureka-7001" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
