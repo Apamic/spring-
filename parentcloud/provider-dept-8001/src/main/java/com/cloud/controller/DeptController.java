@@ -33,6 +33,7 @@ public class DeptController {
 
     @RequestMapping(value = "/dept/list",method = RequestMethod.GET)
     public List<Dept> list() {
+        System.out.println(service.findAll());
         return service.findAll();
     }
 
@@ -48,13 +49,11 @@ public class DeptController {
     public Object discovery() {
         List<String> list = client.getServices();
         System.out.println("*************" + list );
-
         List<ServiceInstance> serviceInstanceList = client.getInstances("PROVIDER-DEPT");
         for (ServiceInstance serviceInstance : serviceInstanceList ) {
             System.out.println(serviceInstance.getServiceId() + "\t" + serviceInstance.getHost() + "\t"
                     + serviceInstance.getPort() + "\t" + serviceInstance.getUri());
         }
-
         return this.client;
+        }
     }
-}
