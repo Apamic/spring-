@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient(value = "provider-dept")
+/**
+ *  修改 api工程，根据已经有的DeptClientService接口新建一个实现了
+ *  FallbackFactory接口的类DeptClientServiceFallbackFactory
+ */
+//@FeignClient(value = "provider-dept")
+@FeignClient(value = "provider-dept",fallbackFactory = DeptClientServiceFallbackFactory.class)
 public interface DeptClientService {
 
     @RequestMapping(value = "/dept/get/{id}", method = RequestMethod.GET)
