@@ -15,5 +15,9 @@ turbine:
   appConfig: PROVIDER-DEPT                                                # 要监控的微服务列表，多个用,分隔
   clusterNameExpression: "'default'"
 
-
+info:                                                                     #没有显示出来
+  app.name: com.cloud
+  company.name: www.more.com
+  build.artifactid: $project.artifactId$
+  build.version: $project.version$
 
