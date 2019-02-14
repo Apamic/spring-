@@ -17,14 +17,14 @@ import java.util.List;
 public class DeptController {
 
     @Autowired
-    private DeptService service = null;
+    private DeptService service;
 
     @RequestMapping(value = "/dept/get/{id}",method = RequestMethod.GET)
     @HystrixCommand(fallbackMethod = "processHystrix_Get")//一旦调用服务方法失败并抛出了错误信息后，会自动调用@HystrixCommand中fallbackMethod指定的方法
     public Dept get(@PathVariable("id") Long id) {
 
         Dept dept = this.service.findById(id);
-        if (null == dept) {
+        if (dept.getDeptno() == null) {
             throw new RuntimeException("该ID:"+id+"没有对应的信息");
         }
         return dept;
