@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          url: git@github.com:Apamic/cloud-config.git                                        #git 上的仓库名字
+          uri: git@github.com:Apamic/cloud-config.git                                        #git 上的仓库名字
 
 
 
