@@ -1,0 +1,15 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config
+  cloud:
+    config:
+      server:
+        git:
+          url: git@github.com:Apamic/cloud-config.git                                        #git 上的仓库名字
+
+
+
+
+

@@ -11,11 +11,17 @@ info:
   company.name: www.morev.com
   build.artifactid: $project.artifactId$
   build.version: $project.version$
-
 spring:
   application:
     name: zuul-gateway
 
 server:
   port: 9527
+zuul:
+  routes:
+    user-route:                                                                                   #该配置方式，user-route只是给路由一个名称，可以随意起名
+      serviceId: PROVIDER-DEPT                                                                    #App微服务名
+      path: /mydept/**                                                                            #映射
+  ignored-services: '*'                                                                          #使用'*'可忽略所有微服务，原路径无法访问
+  prefix: /api                                                                                    #公共前缀
 
