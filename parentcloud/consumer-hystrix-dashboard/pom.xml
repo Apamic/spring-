@@ -46,7 +46,7 @@
             <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
         </dependency>
 
-        <!-- hystrix-dashboard监控多个服务 -->
+        <!-- hystrix-dashboard-turbine监控多个服务 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
