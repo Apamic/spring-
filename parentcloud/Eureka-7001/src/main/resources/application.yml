@@ -1,14 +1,26 @@
+spring:
+  security:
+    user:
+      #配置登录的账号
+      name: Apanic
+      #配置登录的密码
+      password: 123456
 server:
  port: 7001
 eureka:
   server:
-    enable-self-preservation: true          #自我保护
+    #自我保护
+    enable-self-preservation: true
   instance:
-    hostname: eureka7001.com                     #eureka 服务端的实例名称
-    preferIpAddress: true
+    #eureka 服务端的实例名称
+    hostname: eureka7001.com
   client:
-    register-with-eureka: false            #false 表示不向注册中心注册自己
-    fetch-registry: false                    #false 表示自己端就是注册中心，职责就是维护服务实例，并不需要去检索服务
+    #false 表示不向注册中心注册自己
+    register-with-eureka: false
+    #false 表示自己端就是注册中心，职责就是维护服务实例，并不需要去检索服务
+    fetch-registry: false
     service-url:
-      defaultZone: http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka     #设置与eureka server交互的地址查询服务和注册服务
+      #设置与eureka server交互的地址查询服务和注册服务
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka7001.com:7001/eureka
+      #defaultZone: http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

@@ -1,40 +1,59 @@
 server:
   port: 8001
 
-
 mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml                                             # mybatis配置文件所在路径
-  type-aliases-package: com.cloud.entities                                                      # 所有entity别名类所在包
-  mapper-locations: classpath:mybatis/mapper/*.xml                                              # mapper映射文件
-
+  # mybatis配置文件所在路径
+  config-location: classpath:mybatis/mybatis.cfg.xml
+   # 所有entity别名类所在包
+  type-aliases-package: com.cloud.entities
+  # mapper映射文件
+  mapper-locations: classpath:mybatis/mapper/*.xml
 
 spring:
+  security:
+    user:
+      #配置登录的账号
+      name: Apanic
+      #配置登录的密码
+      password: 123456
   application:
     name: provider-dept
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource                                                 # 当前数据源操作类型
-    driver-class-name: com.mysql.cj.jdbc.Driver                                                #  数据库驱动包
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 数据库驱动包
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: password
-    url: jdbc:mysql://192.168.80.130:3306/cloudBD01?useSSL=false&allowMultiQueries=true         # 数据库名称
+    # 数据库名称
+    url: jdbc:mysql://192.168.80.130:3306/cloudBD01?useSSL=false&allowMultiQueries=true
     dbcp2:
-      min-idle: 5                                                                              # 数据库连接池的最小维持连接数
-      initial-size: 5                                                                         # 初始化连接数
-      max-total: 5                                                                            # 最大连接数
-      max-wait-millis: 200                                                                   # 最大等待时间
+      # 数据库连接池的最小维持连接数
+      min-idle: 5
+      # 初始化连接数
+      initial-size: 5
+      # 最大连接数
+      max-total: 5
+      # 最大等待时间
+      max-wait-millis: 200
 
 logging:
   level:
-    com.cloud.dao: debug                                                                     # 开启SQL日志
+    # 开启SQL日志，key为包名
+    com.cloud.dao: debug
 #debug: true
 
 eureka:
-  client:                                                                                    #客户端注册进Eureka服务列表内
+  #客户端注册进Eureka服务列表内
+  client:
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      #集群
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
   instance:
-    instance-id: 张畅君provider-dept:8001-hystrix                                                   #hystrix相关服务别名
-    prefer-ip-address: true                                                                        #访问路径可以显示IP地址
+     #hystrix相关服务别名
+    instance-id: 张畅君provider-dept:8001-hystrix
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
 
 management:
   endpoint:
@@ -46,7 +65,7 @@ management:
       exposure:
         #暴露端点给hystrix监控,可以'*'
         include: hystrix.stream,info,metrics
-
+#上面 info 端点 自定义信息
 info:
   app.name: parentcloud
   company.name: www.morev.com
