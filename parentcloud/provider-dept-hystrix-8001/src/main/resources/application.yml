@@ -37,10 +37,15 @@ eureka:
     prefer-ip-address: true                                                                        #访问路径可以显示IP地址
 
 management:
+  endpoint:
+    health:
+       # 是否展示健康检查详情
+      show-details: always
   endpoints:
     web:
       exposure:
-        include: 'hystrix.stream'                                                                    #暴露端点给hystrix监控
+        #暴露端点给hystrix监控,可以'*'
+        include: hystrix.stream,info,metrics
 
 info:
   app.name: parentcloud
