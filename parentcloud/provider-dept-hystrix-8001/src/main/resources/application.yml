@@ -47,8 +47,8 @@ eureka:
   #客户端注册进Eureka服务列表内
   client:
     service-url:
-      #集群
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      #集群 多个用 , 号分隔
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka7001.com:7001/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@eureka7002.com:7002/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@eureka7003.com:7003/eureka/
   instance:
      #hystrix相关服务别名
     instance-id: 张畅君provider-dept:8001-hystrix
@@ -69,5 +69,6 @@ management:
 info:
   app.name: parentcloud
   company.name: www.morev.com
+  my.name: 畅畅桑
   build.artifactid: $project.artifactId$
   build.version: $project.version$

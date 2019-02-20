@@ -16,7 +16,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-
         </dependency>
 
         <dependency>
@@ -31,6 +30,11 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- security 加密认证-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
         <!--java10-->
         <!-- jaxb模块引用 - start -->

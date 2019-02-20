@@ -31,7 +31,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- security 加密码等-->
+        <!-- security 加密认证-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
