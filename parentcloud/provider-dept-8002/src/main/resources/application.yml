@@ -9,6 +9,12 @@ mybatis:
 
 
 spring:
+  security:
+    user:
+      #配置登录的账号
+      name: Apanic
+      #配置登录的密码
+      password: 123456
   application:
     name: provider-dept
   datasource:
@@ -31,13 +37,26 @@ logging:
 eureka:
   client:                                                                                    #客户端注册进Eureka服务列表内
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka7001.com:7001/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@eureka7002.com:7002/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@eureka7003.com:7003/eureka/
+      #defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
   instance:
     instance-id: 张畅君provider-dept:8002                                                   #服务器别名
     prefer-ip-address: true                                                                 #访问路径可以显示IP地址
 
+management:
+  endpoint:
+    health:
+       # 是否展示健康检查详情
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        #暴露端点给hystrix监控,可以'*'
+        include: hystrix.stream,info,metrics
+
 info:
   app.name: parentcloud
   company.name: www.morev.com
+  my.name: 新城君
   build.artifactid: $project.artifactId$
   build.version: $project.version$
