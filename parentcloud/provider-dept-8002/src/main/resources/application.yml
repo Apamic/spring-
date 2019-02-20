@@ -9,12 +9,12 @@ mybatis:
 
 
 spring:
-  security:
-    user:
+#  security:
+#    user:
       #配置登录的账号
-      name: Apanic
+#      name: Apanic
       #配置登录的密码
-      password: 123456
+#      password: 123456
   application:
     name: provider-dept
   datasource:
@@ -37,7 +37,7 @@ logging:
 eureka:
   client:                                                                                    #客户端注册进Eureka服务列表内
     service-url:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka7001.com:7001/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@eureka7002.com:7002/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@eureka7003.com:7003/eureka/
+      defaultZone: http://Apanic:123456@eureka7001.com:7001/eureka/,http://Apanic:123456@eureka7002.com:7002/eureka/,http://Apanic:123456@eureka7003.com:7003/eureka/
       #defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
   instance:
     instance-id: 张畅君provider-dept:8002                                                   #服务器别名

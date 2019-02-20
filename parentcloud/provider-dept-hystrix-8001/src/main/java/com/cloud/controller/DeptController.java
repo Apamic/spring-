@@ -34,6 +34,12 @@ public class DeptController {
         return new Dept(id,"该ID:"+ id + "没有对应的信息，null--@HystrixCommand","no this database in sql");
     }
 
+    @RequestMapping(value = "/dept/list",method = RequestMethod.GET)
+    public List<Dept> list() {
+        System.out.println(service.findAll());
+        return service.findAll();
+    }
+
 
 
 
