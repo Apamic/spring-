@@ -2,6 +2,8 @@ server:
   port: 801
 
 spring:
+  application:
+    name: consumer-dept
 #  security:
 #    user:
       #配置登录的账号
@@ -11,13 +13,16 @@ spring:
 
 eureka:
   client:
-    register-with-eureka: false
     service-url:
       defaultZone: http://Apanic:123456@eureka7001.com:7001/eureka/,http://Apanic:123456@eureka7002.com:7002/eureka/,http://Apanic:123456@eureka7003.com:7003/eureka/
       #defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id:  新城桑consumer-dept-80
+    prefer-ip-address: true
 
-provider-dept:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#这配置不生效
+#provider-dept:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
 
