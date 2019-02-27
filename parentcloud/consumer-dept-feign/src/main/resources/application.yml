@@ -15,6 +15,22 @@ eureka:
     prefer-ip-address: true
 
 feign:
+  #开启压缩
+  compression:
+    request:
+      #用于支持的媒体类型列表，默认是text/xml、application/xml以及application/json。
+      mime-types: text/xml,application/xml,application/json
+      #用于设置请求的最小阈值，默认是2048
+      min-request-size: 2048
+      enabled: true
+    response:
+      enabled: true
+  client:
+    config:
+      provider-dept:
+        connectTimeout: 5000  # 相当于Request.Options
+        readTimeout: 5000     # 相当于Request.Options
+        loggerLevel: full     # 日志
   hystrix:
     enabled: true
 
@@ -22,3 +38,10 @@ feign:
 provider-dept:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream'
+
