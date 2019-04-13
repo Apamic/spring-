@@ -2,11 +2,10 @@ package com.cloud.service;
 
 import com.cloud.entities.Dept;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  *  修改 api工程，根据已经有的DeptClientService接口新建一个实现了
@@ -24,4 +23,11 @@ public interface DeptClientService {
 
     @RequestMapping(value = "/dept/add", method = RequestMethod.POST)
     public boolean add(Dept dept);
+
+    @RequestMapping(value = "/get/get", method = RequestMethod.GET)
+    public Dept getOne(@RequestParam("id") long id,@RequestParam("name") String name);
+
+    @RequestMapping(value = "get/get2",method = RequestMethod.POST)
+    public Dept getTwo(@RequestBody Dept dept);
+
 }

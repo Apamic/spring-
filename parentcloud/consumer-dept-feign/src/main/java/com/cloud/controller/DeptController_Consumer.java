@@ -3,9 +3,7 @@ package com.cloud.controller;
 import com.cloud.entities.Dept;
 import com.cloud.service.DeptClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,7 +24,18 @@ public class DeptController_Consumer {
     }
 
     @RequestMapping(value = "/consumer/dept/add")
-    public Object add(Dept dept) {
+    public Boolean add(Dept dept) {
         return this.service.add(dept);
     }
+
+    @RequestMapping(value = "/consumer/get/get")
+    public Dept One(@RequestParam("id") Long id,@RequestParam("name") String name) {
+        return this.service.getOne(id,name);
+    }
+
+    @RequestMapping(value = "/consumer/get/get2")
+    public Dept Two(@RequestBody Dept dept) {
+        return this.service.getTwo(dept);
+    }
+
 }

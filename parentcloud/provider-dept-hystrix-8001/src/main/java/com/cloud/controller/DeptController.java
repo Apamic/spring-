@@ -40,7 +40,26 @@ public class DeptController {
         return service.findAll();
     }
 
+    @RequestMapping(value = "/dept/add",method = RequestMethod.POST)
+    public Boolean add(Dept dept) {
+        System.out.println(service.addDept(dept));
+        return service.addDept(dept);
+    }
 
+    @RequestMapping(value = "get/get",method = RequestMethod.GET)
+    public Dept getOne(@RequestParam("id") Long id,@RequestParam("name") String name) {
+        System.out.println(id + name);
+        return this.service.getOne(id,name);
+    }
 
+    @RequestMapping(value = "get/get2",method = RequestMethod.POST)
+    public Dept getTwo(@RequestBody Dept dept) {
+        return this.service.getTwo(dept);
+    }
+
+//    @RequestMapping(value = "get/get3",method = RequestMethod.POST)
+//    public Dept getTwo(@RequestBody Dept dept) {
+//        return this.service.getTwo(dept);
+//    }
 
 }

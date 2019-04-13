@@ -24,6 +24,15 @@ public class DeptClientServiceFallbackFactory implements FallbackFactory<DeptCli
             public boolean add(Dept dept) {
                 return false;
             }
+
+            public Dept getOne(long id,String name) {
+                return new Dept(id,"该ID:"+ id + "没有对应的信息,Consumer客户端提供的降级信息,此刻服务provider以关闭" + "该name:" + name + "是我自己加上去的","没有连接数据库");
+            }
+
+            public Dept getTwo(Dept dept) {
+                return new Dept(dept.getDeptno(),"该ID:" + dept.getDeptno() + "feign","没有连接数据库");
+            }
+
         };
     }
 }
